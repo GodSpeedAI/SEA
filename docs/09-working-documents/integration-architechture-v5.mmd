@@ -1,0 +1,36 @@
+raph TD
+    subgraph "SEA 5.0 Integration Architecture"
+        subgraph "Semantic & Governance Foundation"
+            A[Business Domain Experts] --> B(SBVR & DSL Definitions)
+            B --> C(Semantic Core & DSL Management Service)
+            C --> D(Knowledge Graph Service)
+            E[Architects] --> F(CALM Definitions)
+            F --> G(CALM CLI Service)
+            G --> D
+        end
+
+        subgraph "Cognitive Extension Layer"
+            H[User Input/Interaction] --> I(Context Analyzer Service)
+            I --> J(Recommendation Algorithm Service)
+            J --> K(Artifact Engine Service)
+            K --> L(CADSL Runtime & Renderer)
+            L --> M[User Interface]
+            M --> H
+            M --> N(User Feedback Processor)
+            N --> J
+            D --> I
+            D --> K
+            O[AI Agent Configuration] --> P(AI Agent Configuration Service)
+            P --> I
+            P --> K
+        end
+
+        subgraph "Automated Documentation Generation (ADG) Framework"
+            Q[Project Codebase/Specs] --> R(Project Context Analyzer)
+            R --> S(Documentation Orchestrator Service)
+            S --> K
+            K -- (Documentation CADSL) --> L
+            L -- (Rendered README.md) --> T[Developer/User]
+            T --> N
+        end
+    end

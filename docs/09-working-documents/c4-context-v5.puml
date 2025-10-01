@@ -1,0 +1,17 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+TITLE System Context Diagram for Sentient Enterprise Architecture (SEA) 5.0
+
+Person(user, "Developer/User", "Interacts with the SEA 5.0 system to build, manage, and consume enterprise knowledge and applications.")
+
+System(sea_5_0, "Sentient Enterprise Architecture (SEA) 5.0", "The holistic AI-native architectural framework for cognitive amplification and automated documentation.")
+
+System_Ext(external_systems, "External Enterprise Systems", "Existing enterprise applications, data sources, and services.")
+System_Ext(llm_providers, "LLM Providers", "External Large Language Model services (e.g., OpenAI, Gemini) used by AI Agents.")
+
+Rel(user, sea_5_0, "Interacts with", "Web/API")
+Rel(sea_5_0, external_systems, "Integrates with", "API/Data Feeds")
+Rel(sea_5_0, llm_providers, "Leverages for AI capabilities", "API")
+
+@enduml

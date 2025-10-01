@@ -1,0 +1,39 @@
+sequenceDiagram
+    participant User
+    participant UI
+    participant AI_Agent_Conversation as AI Agent (Conversation)
+    participant Context_Analyzer
+    participant Knowledge_Graph_Service
+    participant Domain_Services
+    participant Recommendation_Algorithm
+    participant Artifact_Engine
+    participant CADSL_Runtime
+
+    User->>UI: Interacts (text/voice)
+    UI->>AI_Agent_Conversation: User Input
+    AI_Agent_Conversation->>Context_Analyzer: Analyze Context (dialogue, intent, project goal)
+    Context_Analyzer->>Knowledge_Graph_Service: Query Semantic Context
+    Knowledge_Graph_Service-->>Context_Analyzer: Semantic Data
+    Context_Analyzer->>Domain_Services: Query Operational Context
+    Domain_Services-->>Context_Analyzer: Operational Data
+    Context_Analyzer-->>AI_Agent_Conversation: Analyzed Context
+
+    AI_Agent_Conversation->>Recommendation_Algorithm: Request Artifact Recommendation
+    Recommendation_Algorithm->>Context_Analyzer: Get Current Context
+    Recommendation_Algorithm->>Recommendation_Algorithm: Evaluate Triggers & Patterns
+    Recommendation_Algorithm->>Recommendation_Algorithm: Score Potential Artifacts (based on efficiency, clarity, ergonomics)
+    Recommendation_Algorithm-->>AI_Agent_Conversation: Recommended Artifact Type (e.g., 'MindMap')
+
+    AI_Agent_Conversation->>Artifact_Engine: Request Artifact Generation (type, context)
+    Artifact_Engine->>CADSL_Runtime: Generate CADSL Definition
+    CADSL_Runtime-->>Artifact_Engine: CADSL Definition (YAML/JSON)
+    Artifact_Engine-->>AI_Agent_Conversation: Cognitive Artifact (CADSL)
+
+    AI_Agent_Conversation->>UI: Present Artifact (CADSL)
+    UI->>User: Renders Interactive Artifact
+
+    User->>UI: Interacts with Artifact (edit, accept, reject)
+    UI->>AI_Agent_Conversation: User Feedback/Interaction
+    AI_Agent_Conversation->>Recommendation_Algorithm: Update Feedback Loop
+    Recommendation_Algorithm->>Recommendation_Algorithm: Refine Scoring Model
+

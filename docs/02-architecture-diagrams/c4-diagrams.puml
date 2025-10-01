@@ -1,0 +1,100 @@
+@startuml C4_Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+TITLE System Context diagram for Sentient Enterprise Architecture (SEA)
+
+Person(user, "Knowledge Worker", "A user of the SEA system.")
+System_Ext(external_systems, "External Systems", "External systems that SEA integrates with (e.g., payment gateways, logistics providers).")
+
+System_Boundary(sea, "Sentient Enterprise Architecture (SEA)") {
+    System(sea_system, "SEA System", "The core SEA system, providing cognitive support and business process automation.")
+}
+
+Rel(user, sea_system, "Interacts with, receives cognitive support from")
+Rel(sea_system, external_systems, "Integrates with")
+
+@enduml
+
+@startuml C4_Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+TITLE Container diagram for Sentient Enterprise Architecture (SEA)
+
+Person(user, "Knowledge Worker", "A user of the SEA system.")
+
+System_Boundary(sea, "Sentient Enterprise Architecture (SEA)") {
+    Container(webapp, "Web Application", "JavaScript, React", "Provides the user interface for interacting with the SEA system.")
+    Container(api_gateway, "API Gateway", "Spring Cloud Gateway", "Routes requests to the appropriate backend services.")
+    Container(domain_services, "Domain Services", "Java, Spring Boot", "Implements the core business logic of the SEA system.")
+    Container(knowledge_graph_service, "Knowledge Graph Service", "Python, Neo4j", "Manages the semantic network of the enterprise.")
+    Container(artifact_engine, "Artifact Engine", "Python, Flask", "Generates and recommends cognitive artifacts.")
+    Container(message_broker, "Message Broker", "RabbitMQ", "Enables asynchronous communication between services.")
+    ContainerDb(database, "Database", "PostgreSQL", "Stores the operational data of the SEA system.")
+    Container(calm_cli_service, "CALM CLI Service", "Node.js", "Provides CALM validation and generation capabilities.")
+}
+
+System_Ext(external_systems, "External Systems", "External systems that SEA integrates with (e.g., payment gateways, logistics providers).")
+
+Rel(user, webapp, "Uses", "HTTPS")
+Rel(webapp, api_gateway, "Makes API calls to", "HTTPS")
+Rel(api_gateway, domain_services, "Routes requests to")
+Rel(domain_services, database, "Reads from and writes to", "JDBC")
+Rel(domain_services, knowledge_graph_service, "Reads from and writes to", "HTTP/Bolt")
+Rel(domain_services, message_broker, "Publishes and subscribes to messages")
+Rel(artifact_engine, knowledge_graph_service, "Reads from", "HTTP/Bolt")
+Rel(artifact_engine, domain_services, "Receives context from")
+Rel(api_gateway, artifact_engine, "Routes requests to")
+Rel(domain_services, external_systems, "Integrates with")
+Rel(calm_cli_service, domain_services, "Validates architecture of")
+Rel(calm_cli_service, knowledge_graph_service, "Validates architecture of")
+
+@enduml
+
+@startuml C4_Component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+TITLE Component diagram for Artifact Engine
+
+Container(artifact_engine, "Artifact Engine", "Python, Flask", "Generates and recommends cognitive artifacts.") {
+    Component(recommendation_algorithm, "Recommendation Algorithm", "Identifies optimal cognitive artifacts based on context.")
+    Component(artifact_generator, "Artifact Generator", "Constructs cognitive artifacts using CADSL elements.")
+    Component(context_analyzer, "Context Analyzer", "Processes conversational context and user intent.")
+    Component(user_feedback_processor, "User Feedback Processor", "Learns from user acceptance/rejection of recommendations.")
+    Component(cadsl_parser_renderer, "CADSL Parser/Renderer", "Parses CADSL definitions and renders artifacts for UI.")
+}
+
+Container(knowledge_graph_service, "Knowledge Graph Service", "Neo4j", "Provides semantic context.")
+Container(domain_services, "Domain Services", "Spring Boot", "Provides operational context.")
+
+Rel(context_analyzer, domain_services, "Queries for operational data")
+Rel(context_analyzer, knowledge_graph_service, "Queries for semantic context")
+Rel(recommendation_algorithm, context_analyzer, "Uses analyzed context")
+Rel(recommendation_algorithm, user_feedback_processor, "Learns from feedback")
+Rel(artifact_generator, recommendation_algorithm, "Receives artifact type")
+Rel(artifact_generator, cadsl_parser_renderer, "Outputs CADSL definition")
+
+@enduml
+
+@startuml C4_Code
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Code.puml
+
+TITLE Code diagram for Artifact Generator Component
+
+Component(artifact_generator, "Artifact Generator", "Constructs cognitive artifacts using CADSL elements.") {
+    Class(ArtifactFactory, "ArtifactFactory", "Factory for creating CADSL objects.")
+    Class(CadslElement, "CadslElement", "Base class for all CADSL elements.")
+    Class(TextField, "TextField", "Represents a text input field.")
+    Class(Checkbox, "Checkbox", "Represents a checkbox.")
+    Class(Section, "Section", "Represents a container section.")
+    Class(RelationshipLine, "RelationshipLine", "Represents a connection between elements.")
+    Class(CadslBuilder, "CadslBuilder", "Builds complex CADSL structures from element definitions.")
+}
+
+Rel(ArtifactFactory, CadslElement, "Creates instances of")
+Rel(CadslBuilder, ArtifactFactory, "Uses to compose artifacts")
+Rel(CadslElement, TextField, "Inherits from")
+Rel(CadslElement, Checkbox, "Inherits from")
+Rel(CadslElement, Section, "Inherits from")
+Rel(CadslElement, RelationshipLine, "Inherits from")
+
+@enduml

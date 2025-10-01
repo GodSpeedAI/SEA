@@ -1,0 +1,24 @@
+@startuml C4_Component
+!include ./plantuml-c4-includes/C4_Component.puml
+
+TITLE Component diagram for Artifact Engine
+
+Container(artifact_engine, "Artifact Engine", "Python, Flask", "Generates and recommends cognitive artifacts.") {
+    Component(recommendation_algorithm, "Recommendation Algorithm", "Identifies optimal cognitive artifacts based on context.")
+    Component(artifact_generator, "Artifact Generator", "Constructs cognitive artifacts using CADSL elements.")
+    Component(context_analyzer, "Context Analyzer", "Processes conversational context and user intent.")
+    Component(user_feedback_processor, "User Feedback Processor", "Learns from user acceptance/rejection of recommendations.")
+    Component(cadsl_parser_renderer, "CADSL Parser/Renderer", "Parses CADSL definitions and renders artifacts for UI.")
+}
+
+Container(knowledge_graph_service, "Knowledge Graph Service", "Neo4j", "Provides semantic context.")
+Container(domain_services, "Domain Services", "Spring Boot", "Provides operational context.")
+
+Rel(context_analyzer, domain_services, "Queries for operational data")
+Rel(context_analyzer, knowledge_graph_service, "Queries for semantic context")
+Rel(recommendation_algorithm, context_analyzer, "Uses analyzed context")
+Rel(recommendation_algorithm, user_feedback_processor, "Learns from feedback")
+Rel(artifact_generator, recommendation_algorithm, "Receives artifact type")
+Rel(artifact_generator, cadsl_parser_renderer, "Outputs CADSL definition")
+
+@enduml

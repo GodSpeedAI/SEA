@@ -1,0 +1,23 @@
+@startuml C4_Code
+!include ./plantuml-c4-includes/C4_Component.puml
+
+TITLE Code diagram for Artifact Generator Component
+
+Component(artifact_generator, "Artifact Generator", "Constructs cognitive artifacts using CADSL elements.") {
+    Class(ArtifactFactory, "ArtifactFactory", "Factory for creating CADSL objects.")
+    Class(CadslElement, "CadslElement", "Base class for all CADSL elements.")
+    Class(TextField, "TextField", "Represents a text input field.")
+    Class(Checkbox, "Checkbox", "Represents a checkbox.")
+    Class(Section, "Section", "Represents a container section.")
+    Class(RelationshipLine, "RelationshipLine", "Represents a connection between elements.")
+    Class(CadslBuilder, "CadslBuilder", "Builds complex CADSL structures from element definitions.")
+}
+
+Rel(ArtifactFactory, CadslElement, "Creates instances of")
+Rel(CadslBuilder, ArtifactFactory, "Uses to compose artifacts")
+Rel(CadslElement, TextField, "Inherits from")
+Rel(CadslElement, Checkbox, "Inherits from")
+Rel(CadslElement, Section, "Inherits from")
+Rel(CadslElement, RelationshipLine, "Inherits from")
+
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+!ifndef C4_Context
+!define C4_Context
+
+!include <C4/C4_Container>
+
+!unquoted procedure C4_Context($alias, $label, $descr, $tags="", $link="")
+  System($alias, $label, $descr, $tags, $link)
+!endprocedure
+
+!unquoted procedure C4_System_Ext($alias, $label, $descr, $tags="", $link="")
+  System_Ext($alias, $label, $descr, $tags, $link)
+!endprocedure
+
+!unquoted procedure C4_Person($alias, $label, $descr, $tags="", $link="")
+  Person($alias, $label, $descr, $tags, $link)
+!endprocedure
+
+!unquoted procedure C4_System_Boundary($alias, $label, $tags="", $link="")
+  Boundary($alias, $label, $tags, $link)
+!endprocedure
+
+!unquoted procedure C4_Rel($from, $to, $label, $techn="", $descr="", $tags="", $link="")
+  Rel($from, $to, $label, $techn, $descr, $tags, $link)
+!endprocedure
+
+!endif
+
+TITLE System Context diagram for Sentient Enterprise Architecture (SEA) 5.0
+
+Person(user, "Developer/Knowledge Worker", "A user who interacts with the SEA system for cognitive support, documentation, and business process automation.")
+System_Ext(external_systems, "External Systems", "External systems that SEA integrates with (e.g., payment gateways, logistics providers).")
+
+System_Boundary(sea, "Sentient Enterprise Architecture (SEA) 5.0") {
+    System(sea_system, "SEA System", "The holistic AI-native architectural framework providing cognitive amplification, automated documentation, and business process automation.")
+}
+
+Rel(user, sea_system, "Interacts with, receives cognitive support and automated documentation from")
+Rel(sea_system, external_systems, "Integrates with")
+
+@enduml

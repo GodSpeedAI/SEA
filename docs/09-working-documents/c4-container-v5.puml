@@ -1,0 +1,56 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+TITLE Container Diagram for Sentient Enterprise Architecture (SEA) 5.0
+
+System_Boundary(sea_5_0, "Sentient Enterprise Architecture (SEA) 5.0") {
+
+    Container(web_app, "Web Application", "React/Next.js", "Provides user interface for interacting with SEA services, including cognitive artifacts and documentation.")
+    Container(api_gateway, "API Gateway", "Spring Cloud Gateway", "Routes requests to appropriate microservices and handles authentication/authorization.")
+
+    Container(semantic_core_service, "Semantic Core & DSL Management Service", "Python/FastAPI", "Manages SBVR rules, DSL definitions, and semantic consistency.")
+    Container(knowledge_graph_service, "Knowledge Graph Service", "Python/FastAPI", "Manages the Neo4j Knowledge Graph, providing semantic context.")
+    Container(calm_cli_service, "CALM CLI Service", "Go/CLI", "Provides command-line interface for architectural governance and CALM validation.")
+
+    Container(context_analyzer_service, "Context Analyzer Service", "Python/FastAPI", "Analyzes user input and system context to provide relevant information.")
+    Container(recommendation_algorithm_service, "Recommendation Algorithm Service", "Python/FastAPI", "Generates recommendations for cognitive artifacts and AI agent actions.")
+    Container(artifact_engine_service, "Artifact Engine Service", "Python/FastAPI", "Generates CADSL-based cognitive artifacts.")
+    Container(cadsl_runtime_renderer, "CADSL Runtime & Renderer", "TypeScript/Node.js", "Parses and renders CADSL artifacts into interactive UI components.")
+    Container(ai_agent_config_service, "AI Agent Configuration Service", "Python/FastAPI", "Manages Prompt Management DSL and AI agent configurations.")
+    Container(user_feedback_processor, "User Feedback Processor", "Python/FastAPI", "Collects and processes user interaction data and explicit feedback.")
+
+    Container(documentation_orchestrator, "Documentation Orchestrator Service", "Python/FastAPI", "Coordinates automated documentation generation.")
+    Container(project_context_analyzer, "Project Context Analyzer", "Python/FastAPI", "Extracts project context from codebase and specifications for documentation.")
+
+    Rel(user, web_app, "Uses", "HTTPS")
+    Rel(web_app, api_gateway, "Makes API calls to", "HTTPS")
+    Rel(api_gateway, semantic_core_service, "Calls", "Internal API")
+    Rel(api_gateway, knowledge_graph_service, "Calls", "Internal API")
+    Rel(api_gateway, calm_cli_service, "Calls", "Internal API")
+    Rel(api_gateway, context_analyzer_service, "Calls", "Internal API")
+    Rel(api_gateway, recommendation_algorithm_service, "Calls", "Internal API")
+    Rel(api_gateway, artifact_engine_service, "Calls", "Internal API")
+    Rel(api_gateway, cadsl_runtime_renderer, "Calls", "Internal API")
+    Rel(api_gateway, ai_agent_config_service, "Calls", "Internal API")
+    Rel(api_gateway, user_feedback_processor, "Calls", "Internal API")
+    Rel(api_gateway, documentation_orchestrator, "Calls", "Internal API")
+
+    Rel(semantic_core_service, knowledge_graph_service, "Updates/Queries", "Neo4j Driver")
+    Rel(knowledge_graph_service, external_systems, "Integrates with", "API/Data Feeds")
+    Rel(context_analyzer_service, knowledge_graph_service, "Queries", "Neo4j Driver")
+    Rel(context_analyzer_service, ai_agent_config_service, "Queries", "Internal API")
+    Rel(artifact_engine_service, context_analyzer_service, "Queries", "Internal API")
+    Rel(artifact_engine_service, recommendation_algorithm_service, "Queries", "Internal API")
+    Rel(cadsl_runtime_renderer, artifact_engine_service, "Receives CADSL from", "Internal API")
+    Rel(user_feedback_processor, recommendation_algorithm_service, "Feeds data to", "Message Queue")
+
+    Rel(documentation_orchestrator, project_context_analyzer, "Requests context from", "Internal API")
+    Rel(project_context_analyzer, semantic_core_service, "Queries", "Internal API")
+    Rel(project_context_analyzer, calm_cli_service, "Queries", "Internal API")
+    Rel(documentation_orchestrator, artifact_engine_service, "Requests documentation CADSL from", "Internal API")
+    Rel(cadsl_runtime_renderer, documentation_orchestrator, "Receives documentation CADSL from", "Internal API")
+    Rel(web_app, cadsl_runtime_renderer, "Displays rendered documentation", "HTTPS")
+
+}
+
+@enduml

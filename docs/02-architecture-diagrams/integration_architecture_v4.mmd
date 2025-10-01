@@ -1,0 +1,74 @@
+graph TD
+    DSL["1. DSL Definition (MUDM/YAML + SBVR)"]
+    
+    subgraph Generation_Engine["Compilation Engine"]
+        direction LR
+        G1("Python Code Gen (DDD)")
+        G2("Ontology Gen (OWL/SHACL)")
+        G3("API Schema Gen")
+        G4("CALM Model Gen")
+        G5("Cognitive Artifact DSL Gen")
+    end
+
+    subgraph Runtime_System["Live System"]
+        direction TB
+        App["Application Core (DDD)"]
+        subgraph Adapters
+            DB["Database"]
+            Broker["Message Broker"]
+            API["API Gateway"]
+        end
+        App --> Adapters
+    end
+
+    subgraph Knowledge_System["Knowledge System"]
+        direction TB
+        KG_DB["Graph Database"]
+        Inference["Reasoning Engine"]
+        KG_DB --> Inference
+    end
+
+    subgraph Cognitive_Extension_Layer["Cognitive Extension Layer"]
+        ArtifactEngine["Artifact Recommendation Engine"]
+        CADSL_Runtime["Cognitive Artifact DSL Runtime"]
+        ArtifactEngine --> CADSL_Runtime
+    end
+
+    subgraph ADG_Framework["Automated Documentation Generation Framework"]
+        DocOrchestrator["Documentation Orchestrator"]
+        ProjectAnalyzer["Project Context Analyzer"]
+        DocOrchestrator --> ProjectAnalyzer
+    end
+
+    CALM_Model["CALM Architecture Model"]
+    CALM_CLI["CALM CLI (Validate, Docify)"]
+
+    DSL --> Generation_Engine
+    G1 --> App
+    G2 --> KG_DB
+    G3 --> API
+    G4 --> CALM_Model
+    G5 --> CADSL_Runtime
+
+    App --"Emits Events"--> Broker
+    Broker --"Feeds Projectors"--> KG_DB
+    Broker --"Feeds Projectors"--> DB
+
+    CALM_Model --"Governs"--> App
+    CALM_Model --"Governs"--> KG_DB
+    CALM_Model --"Used by"--> CALM_CLI
+
+    KG_DB --"Grounds"--> ArtifactEngine
+    App --"Context"--> ArtifactEngine
+    ArtifactEngine --"Recommends/Generates"--> User_Interface[User Interface]
+    User_Interface --"User Input"--> App
+    User_Interface --"User Interaction"--> ArtifactEngine
+
+    DSL --"Semantic Context"--> ProjectAnalyzer
+    CALM_Model --"Architectural Context"--> ProjectAnalyzer
+    KG_DB --"Knowledge Context"--> ProjectAnalyzer
+    ProjectAnalyzer --"Project Context"--> DocOrchestrator
+    DocOrchestrator --"Documentation Request"--> ArtifactEngine
+    ArtifactEngine --"Documentation CADSL"--> CADSL_Runtime
+    CADSL_Runtime --"Rendered Docs"--> User_Interface
+

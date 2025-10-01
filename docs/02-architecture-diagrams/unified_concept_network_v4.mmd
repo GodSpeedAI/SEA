@@ -1,0 +1,65 @@
+graph TD
+    subgraph SEA_Meta_Model["Sentient Enterprise Architecture"]
+        A[Semantic Core DSL SBVR] --> B(Computational Layer);
+        A --> C(Knowledge Layer);
+        A --> E(Identity Layer);
+        A --> H(Architectural Layer CALM);
+        A --> I(Cognitive Extension Layer);
+        H --> B;
+        H --> C;
+        B --> F{Real World};
+        C --> D(Intelligence Layer);
+        D --> B;
+        D --> I;
+        I --> B;
+        F --> G(Process Mining);
+        G --> A;
+    end
+
+    subgraph Semantic_Core["Semantic Core"]
+        MUDM("MUDM DSL: Entity, Resource, Flow, Instance, Policy");
+        SBVR("SBVR: Business Vocabulary & Rules");
+        MUDM --- SBVR;
+    end
+
+    subgraph Architectural_Layer["Architectural Layer"]
+        CALM("CALM: Architecture-as-Code (Nodes, Relationships, Controls)");
+    end
+
+    subgraph Computational_Layer["Computational Layer"]
+        DDD("DDD/Hexagon: Aggregates, Services, Ports");
+        AIGen("AI-Driven Code Generation");
+        DDD --- AIGen;
+    end
+
+    subgraph Knowledge_Layer["Knowledge Layer"]
+        KG("KG: RDF, OWL, SHACL");
+    end
+
+    subgraph Intelligence_Layer["Intelligence Layer"]
+        AI("AI Agents");
+        PromptDSL("Prompt Management DSL (LoRA/Adapters)");
+        AI --- PromptDSL;
+    end
+
+    subgraph Cognitive_Extension_Layer["Cognitive Extension Layer"]
+        CADSL("Cognitive Artifact DSL");
+        ArtifactEngine("Artifact Recommendation Engine");
+        CADSL --- ArtifactEngine;
+    end
+
+    subgraph ADG_Framework["ADG Framework"]
+        DocOrchestrator("Documentation Orchestrator");
+        ProjectAnalyzer("Project Context Analyzer");
+        DocOrchestrator --- ProjectAnalyzer;
+    end
+
+    subgraph Identity_Layer["Identity Layer"]
+        Brand("Brand Semantics: Sphinx, Dual-Modes");
+    end
+
+    A --> ADG_Framework;
+    H --> ADG_Framework;
+    ADG_Framework --> I;
+
+    style SEA_Meta_Model fill:#f9f,stroke:#333,stroke-width:2px

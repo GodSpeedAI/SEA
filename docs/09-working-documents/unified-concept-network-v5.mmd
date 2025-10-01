@@ -1,0 +1,48 @@
+graph TD
+    subgraph Sentient Enterprise Architecture 5.0
+        subgraph Semantic Core
+            A[SBVR & DSLs] --> B(Knowledge Graph)
+        end
+
+        subgraph Architectural Governance
+            C[FINOS CALM] --> D(CALM CLI Service)
+        end
+
+        subgraph Cognitive Extension Layer
+            E[Context Analyzer] --> F(Artifact Engine)
+            F --> G(CADSL Runtime & Renderer)
+            H[Prompt Management DSL] --> I(AI Agent Configuration Service)
+            J[User Feedback Processor] --> K(Recommendation Algorithm)
+            K --> F
+            E --> K
+
+            subgraph "ADG Framework"
+                L[Documentation Orchestrator Service] --> M(Project Context Analyzer)
+                M --> L
+                L --> F
+                F -- (Documentation Artifact) --> G
+                G -- (Rendered Documentation) --> User[User/Developer]
+                User --> J
+            end
+        end
+
+        B --> E
+        D --> M
+        I --> E
+        I --> F
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#bbf,stroke:#333,stroke-width:2px
+    style G fill:#f9f,stroke:#333,stroke-width:2px
+    style H fill:#f9f,stroke:#333,stroke-width:2px
+    style I fill:#bbf,stroke:#333,stroke-width:2px
+    style J fill:#f9f,stroke:#333,stroke-width:2px
+    style K fill:#bbf,stroke:#333,stroke-width:2px
+    style L fill:#ccf,stroke:#333,stroke-width:2px
+    style M fill:#ccf,stroke:#333,stroke-width:2px
+    style User fill:#afa,stroke:#333,stroke-width:2px
