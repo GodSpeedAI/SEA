@@ -3,7 +3,7 @@
 ### *The AI-Native Framework for Cognitive Amplification and Automated Documentation*
 
 [![Version](https://img.shields.io/badge/version-5.0-blue.svg)](https://github.com/GodSpeedAI/SEA)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg)](LICENSE)
 [![Documentation](https://img.shields.io/badge/docs-comprehensive-brightgreen.svg)](docs/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -751,7 +751,7 @@ For proprietary applications, enterprise deployments, or when MPL 2.0 terms are 
 
 ### Third-Party Licenses
 
-SEA 5.0 incorporates and integrates with several open-source components:
+SEA 1.0 incorporates and integrates with several open-source components:
 
 | Component | License | Purpose |
 |-----------|---------|---------|
@@ -916,4 +916,4 @@ If you use SEA in academic research, please cite:
 
 ---
 
-*Last Updated: October 1, 2025 • Version 5.0*
+*Last Updated: October 1, 2025 • Version 1.0*

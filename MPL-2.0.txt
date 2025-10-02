@@ -1,0 +1,46 @@
+# LICENSE
+
+**Sentient Enterprise Architecture (SEA)** is offered under a **dual license model**:
+
+---
+
+## 1. Open Source License (Default)
+
+* Licensed under the **Mozilla Public License 2.0 (MPL-2.0)**.
+* You may freely use SEA for:
+
+  * Personal projects, research, or homelab use
+  * Internal organizational use
+  * Creating, selling, or distributing your own software (“Output”) built with SEA, provided the Output does not include SEA itself.
+* You fully own all Output created by SEA.
+
+Full text: [MPL-2.0 License](https://www.mozilla.org/MPL/2.0/)
+
+---
+
+## 2. Commercial License
+
+If you:
+
+* Resell or redistribute SEA itself
+* Bundle SEA in a commercial product
+* Offer SEA’s functionality through SaaS, APIs, or managed services
+* White-label SEA as your own technology
+
+➡️ You must obtain a **commercial license** from GodSpeed AI.
+
+See: [COMMERCIAL-LICENSE.md](./COMMERCIAL-LICENSE.md)
+
+For inquiries: **[sprime01@gmail.com](mailto:sprime01@gmail.com)**
+
+---
+
+## 3. Simplified Rule (“Photoshop Principle”)
+
+* **Free:** You own what you create *with* SEA and may sell or distribute it without restrictions.
+* **Paid:** You may not resell SEA itself, host it as a service, or expose its functionality without a commercial license.
+
+---
+
+**“Sentient Enterprise Architecture” and “SEA” are trademarks of GodSpeed AI.**
+
