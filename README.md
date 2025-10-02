@@ -440,6 +440,7 @@ documentation:
 - **Project Context Analyzer** (Python/FastAPI) - Extracts project semantics
 
 For detailed architecture diagrams, see:
+
 - [C4 Container Diagram](docs/02-architecture-diagrams/c4-container.puml)
 - [Integration Architecture](docs/02-architecture-diagrams/integration_architecture_v4.mmd)
 - [Unified Concept Network](docs/02-architecture-diagrams/unified_concept_network_v4.mmd)
@@ -590,6 +591,7 @@ pre-commit run --all-files
 **Problem**: `Could not connect to PostgreSQL/Neo4j`
 
 **Solution**:
+
 ```bash
 # Check containers are running
 docker-compose ps
@@ -601,6 +603,7 @@ docker-compose logs neo4j
 # Verify credentials in .env match docker-compose.yml
 # Wait 30 seconds after starting databases before starting services
 ```
+
 </details>
 
 <details>
@@ -609,6 +612,7 @@ docker-compose logs neo4j
 **Problem**: `ProjectContextAnalyzer failed to extract semantic context`
 
 **Solution**:
+
 ```bash
 # Ensure Semantic Core is running
 curl http://localhost:8001/health
@@ -619,6 +623,7 @@ ls -la your-project/semantic-core/
 # Verify file permissions
 chmod -R 755 your-project/
 ```
+
 </details>
 
 <details>
@@ -627,6 +632,7 @@ chmod -R 755 your-project/
 **Problem**: `Failed to parse CADSL definition`
 
 **Solution**:
+
 ```bash
 # Validate CADSL syntax
 sea-cli validate cadsl artifact.yml
@@ -637,6 +643,7 @@ docker-compose logs cadsl-runtime
 # Ensure artifact schema matches specification
 # See docs/03-dsl-specifications/cadsl-spec.md
 ```
+
 </details>
 
 <details>
@@ -645,6 +652,7 @@ docker-compose logs cadsl-runtime
 **Problem**: `Control violation: security-boundary-enforcement`
 
 **Solution**:
+
 ```bash
 # View detailed validation report
 sea-calm validate --verbose architecture/system.calm.json
@@ -655,6 +663,7 @@ cat architecture/controls/security-controls.json
 # Update architecture to satisfy controls
 # OR update controls if requirements changed
 ```
+
 </details>
 
 ### Performance Optimization
@@ -717,11 +726,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### License
 
-SEA is dual-licensed:
-- Open Source: MPL 2.0 (see LICENSE)
-- Commercial License: for proprietary or enterprise use (see LICENSE-COMMERCIAL, contact sprime01@gmail.com)
+SEA 5.0 is **dual-licensed** to provide flexibility for different use cases:
 
-This project is licensed under the **Mozilla Public License 2.0 (MPL 2.0)** — see the [LICENSE](LICENSE) file for full terms.
+#### Open Source License
+
+Licensed under the **Mozilla Public License 2.0 (MPL 2.0)** for open-source projects and non-commercial use.
 
 ```
 Copyright 2025 SEA Framework Contributors
@@ -731,14 +740,27 @@ If a copy of the MPL was not distributed with this file, You can obtain one at
 http://mozilla.org/MPL/2.0/.
 ```
 
+See the [LICENSE](LICENSE) file for complete terms.
+
+#### Commercial License
+
+For proprietary applications, enterprise deployments, or when MPL 2.0 terms are incompatible with your business model, a commercial license is available.
+
+**Contact**: <sprime01@gmail.com>
+**Details**: See [LICENSE-COMMERCIAL](LICENSE-COMMERCIAL)
+
 ### Third-Party Licenses
 
-- **FINOS CALM** - Apache 2.0
-- **Neo4j Community Edition** - GPLv3
-- **Kong Gateway** - Apache 2.0
-- **React** - MIT
+SEA 5.0 incorporates and integrates with several open-source components:
 
-See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for the complete list and any compatibility notes.
+| Component | License | Purpose |
+|-----------|---------|---------|
+| **FINOS CALM** | Apache 2.0 | Architectural governance |
+| **Neo4j Community Edition** | GPLv3 | Knowledge graph database |
+| **Kong Gateway** | Apache 2.0 | API gateway |
+| **React** | MIT | Web application framework |
+
+For a complete list of all dependencies and license compatibility information, see [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
 ---
 
@@ -774,18 +796,21 @@ Special thanks to all [contributors](CONTRIBUTORS.md) who have helped shape this
 ### Roadmap
 
 #### Q4 2025
+
 - [ ] Multi-language support for documentation generation
 - [ ] Visual CADSL artifact designer
 - [ ] Enhanced AI model fine-tuning capabilities
 - [ ] Performance optimizations for large-scale deployments
 
 #### Q1 2026
+
 - [ ] Cloud-native deployment templates (AWS, Azure, GCP)
 - [ ] Advanced analytics dashboard
 - [ ] Real-time collaboration on cognitive artifacts
 - [ ] Integration with popular project management tools
 
 #### Q2 2026
+
 - [ ] Mobile applications (iOS, Android)
 - [ ] Voice interface for cognitive artifact interaction
 - [ ] Automated testing framework generator
@@ -818,6 +843,7 @@ SEA 5.0 has been validated in production environments with measurable impact:
 If you discover a security vulnerability, please email [security@sea-framework.org](mailto:security@sea-framework.org). Do not open a public issue.
 
 We will respond within 48 hours with:
+
 - Confirmation of the vulnerability
 - Estimated fix timeline
 - Credit acknowledgment (if desired)
@@ -841,6 +867,7 @@ See [SECURITY.md](SECURITY.md) for our full security policy.
 Need dedicated support for your organization?
 
 **Enterprise Edition Features:**
+
 - Priority support with SLA guarantees
 - Custom semantic core development
 - Professional services and training
