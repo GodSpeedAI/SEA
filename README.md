@@ -3,7 +3,7 @@
 ### *The AI-Native Framework for Cognitive Amplification and Automated Documentation*
 
 [![Version](https://img.shields.io/badge/version-5.0-blue.svg)](https://github.com/GodSpeedAI/SEA)
-[![License](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Documentation](https://img.shields.io/badge/docs-comprehensive-brightgreen.svg)](docs/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
