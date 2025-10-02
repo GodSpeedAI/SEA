@@ -139,7 +139,7 @@ This Agreement is governed by the laws of North Carolina, USA. Disputes will be 
 
 ---
 
-# SIMPLIFIED DUAL LICENSE NOTICE
+## SIMPLIFIED DUAL LICENSE NOTICE
 
 ### SEA Licensing = The Photoshop Model
 
