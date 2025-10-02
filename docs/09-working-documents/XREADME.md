@@ -12,7 +12,7 @@ In today's complex, fast-evolving enterprise landscape, organizations face criti
 *   **Architectural Non-Compliance**: Difficulty in enforcing architectural standards and preventing technical debt, resulting in brittle and unmaintainable systems.
 *   **Cognitive Overload**: Information deluge, fragmented knowledge, and manual processes lead to reduced focus, decision fatigue, and decreased productivity for knowledge workers.
 *   **Stale Documentation**: Manual documentation efforts are time-consuming, often outdated, and fail to keep pace with rapid development cycles, hindering developer onboarding and collaboration.
-*   **Inconsistent AI Behavior**: AI agents lack domain-specific grounding and predictable responses, leading to 
+*   **Inconsistent AI Behavior**: AI agents lack domain-specific grounding and predictable responses, leading to
 
 unreliable outcomes and lack of trust.
 
@@ -64,7 +64,7 @@ Ensure you have the following installed:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/your-org/sea-5.0.git
+    git clone https://github.com/GodSpeedAI/SEA.git
     cd sea-5.0
     ```
 
@@ -145,7 +145,7 @@ Refer to the [SDS.md](docs/sds.md) and [unified-synthesis-v5.md](docs/unified-sy
 ### 🤝 Contributing Guidelines
 
 1.  **Code of Conduct**: Adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
-2.  **Issue Tracking**: All new features and bug fixes should be linked to an issue in our [issue tracker](https://github.com/your-org/sea-5.0/issues).
+2.  **Issue Tracking**: All new features and bug fixes should be linked to an issue in our [issue tracker](https://github.com/GodSpeedAI/SEA/issues).
 3.  **Branching Model**: We use a `git-flow` branching model (main, develop, feature branches).
 4.  **Pull Requests**: Submit PRs to the `develop` branch. Ensure your code is well-tested and documented.
 5.  **TDD**: All new features must be developed using a Test-Driven Development approach as outlined in [TDD_implementation_plan.md](docs/TDD_implementation_plan.md).

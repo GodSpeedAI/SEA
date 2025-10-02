@@ -2,7 +2,7 @@
 
 ### *The AI-Native Framework for Cognitive Amplification and Automated Documentation*
 
-[![Version](https://img.shields.io/badge/version-5.0-blue.svg)](https://github.com/your-org/sea-5.0)
+[![Version](https://img.shields.io/badge/version-5.0-blue.svg)](https://github.com/GodSpeedAI/SEA)
 [![License](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg)](LICENSE)
 [![Documentation](https://img.shields.io/badge/docs-comprehensive-brightgreen.svg)](docs/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -76,7 +76,7 @@ Ensure you have the following installed:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/sea-5.0.git
+git clone https://github.com/GodSpeedAI/SEA.git
 cd sea-5.0
 
 # Set up environment variables
@@ -99,7 +99,7 @@ npm start
 
 ```bash
 # Clone and navigate
-git clone https://github.com/your-org/sea-5.0.git
+git clone https://github.com/GodSpeedAI/SEA.git
 cd sea-5.0
 
 # Set up Python services
@@ -455,7 +455,7 @@ We welcome contributions! Here's how to get started.
 
 ```bash
 # 1. Fork and clone
-git clone https://github.com/your-username/sea-5.0.git
+git clone https://github.com/GodSpeedAI/SEA.git
 cd sea-5.0
 
 # 2. Install pre-commit hooks
@@ -677,8 +677,8 @@ cat architecture/controls/security-controls.json
 
 If you can't resolve an issue:
 
-1. Search [existing issues](https://github.com/your-org/sea-5.0/issues)
-2. Check [Discussions](https://github.com/your-org/sea-5.0/discussions)
+1. Search [existing issues](https://github.com/GodSpeedAI/SEA/issues)
+2. Check [Discussions](https://github.com/GodSpeedAI/SEA/discussions)
 3. Join our [Discord server](https://discord.gg/sea-community)
 4. Open a new issue with:
    - SEA version
@@ -693,8 +693,8 @@ If you can't resolve an issue:
 ### Get Involved
 
 - **💬 Discord** - [Join our community](https://discord.gg/sea-community) for real-time discussions
-- **💡 GitHub Discussions** - [Ask questions, share ideas](https://github.com/your-org/sea-5.0/discussions)
-- **🐛 Issue Tracker** - [Report bugs, request features](https://github.com/your-org/sea-5.0/issues)
+- **💡 GitHub Discussions** - [Ask questions, share ideas](https://github.com/GodSpeedAI/SEA/discussions)
+- **🐛 Issue Tracker** - [Report bugs, request features](https://github.com/GodSpeedAI/SEA/issues)
 - **📧 Mailing List** - [sea-users@googlegroups.com](mailto:sea-users@googlegroups.com)
 - **🐦 Twitter** - [@SEA_Framework](https://twitter.com/SEA_Framework) for updates
 
@@ -882,7 +882,7 @@ Need dedicated support for your organization?
 
 ## 🎓 Citation
 
-If you use SEA 5.0 in academic research, please cite:
+If you use SEA in academic research, please cite:
 
 ```bibtex
 @software{sea_framework_2025,
@@ -890,8 +890,8 @@ If you use SEA 5.0 in academic research, please cite:
   author = {SEA Framework Contributors},
   year = {2025},
   version = {5.0},
-  url = {https://github.com/your-org/sea-5.0},
-  note = {Apache License 2.0}
+  url = {https://github.com/GodSpeedAI/SEA},
+  note = {Mozilla Public License 2.0}
 }
 ```
 
@@ -909,7 +909,7 @@ If you use SEA 5.0 in academic research, please cite:
 
 **⭐ Star us on GitHub — it helps!**
 
-[![GitHub stars](https://img.shields.io/github/stars/your-org/sea-5.0?style=social)](https://github.com/your-org/sea-5.0)
+[![GitHub stars](https://img.shields.io/github/stars/your-org/sea-5.0?style=social)](https://github.com/GodSpeedAI/SEA)
 [![Twitter Follow](https://img.shields.io/twitter/follow/SEA_Framework?style=social)](https://twitter.com/SEA_Framework)
 
 </div>
