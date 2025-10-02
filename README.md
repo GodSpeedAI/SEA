@@ -726,7 +726,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### License
 
-SEA 5.0 is **dual-licensed** to provide flexibility for different use cases:
+SEA is **dual-licensed** to provide flexibility for different use cases:
 
 #### Open Source License
 
