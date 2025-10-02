@@ -103,8 +103,8 @@ Person(user, "Knowledge Worker", "A user of the SEA system.")
 
 System_Boundary(sea, "Sentient Enterprise Architecture (SEA)") {
     Container(webapp, "Web Application", "JavaScript, React", "Provides the user interface for interacting with the SEA system.")
-    Container(api_gateway, "API Gateway", "Spring Cloud Gateway", "Routes requests to the appropriate backend services.")
-    Container(domain_services, "Domain Services", "Java, Spring Boot", "Implements the core business logic of the SEA system.")
+    Container(api_gateway, "API Gateway", "Kong Gateway", "Routes requests, applies policies, and exposes polyglot interfaces.")
+    Container(domain_services, "Domain Services", "Python, FastAPI", "Implements the core business logic of the SEA system.")
     Container(knowledge_graph_service, "Knowledge Graph Service", "Python, Neo4j", "Manages the semantic network of the enterprise.")
     Container(artifact_engine, "Artifact Engine", "Python, Flask", "Generates and recommends cognitive artifacts.")
     Container(message_broker, "Message Broker", "RabbitMQ", "Enables asynchronous communication between services.")
@@ -149,7 +149,7 @@ Container(artifact_engine, "Artifact Engine", "Python, Flask", "Generates and re
 }
 
 Container(knowledge_graph_service, "Knowledge Graph Service", "Neo4j", "Provides semantic context.")
-Container(domain_services, "Domain Services", "Spring Boot", "Provides operational context.")
+Container(domain_services, "Domain Services", "Python/FastAPI", "Provides operational context.")
 
 Rel(context_analyzer, domain_services, "Queries for operational data")
 Rel(context_analyzer, knowledge_graph_service, "Queries for semantic context")
@@ -857,4 +857,3 @@ This schema captures user interactions with cognitive artifacts and feedback on 
   "required": ["interactionId", "userId", "timestamp", "eventType"]
 }
 ```
-

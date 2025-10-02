@@ -6,7 +6,7 @@ TITLE Container Diagram for Sentient Enterprise Architecture (SEA) 5.0
 System_Boundary(sea_5_0, "Sentient Enterprise Architecture (SEA) 5.0") {
 
     Container(web_app, "Web Application", "React/Next.js", "Provides user interface for interacting with SEA services, including cognitive artifacts and documentation.")
-    Container(api_gateway, "API Gateway", "Spring Cloud Gateway", "Routes requests to appropriate microservices and handles authentication/authorization.")
+    Container(api_gateway, "API Gateway", "Kong Gateway", "Routes requests, enforces policies, and handles authentication/authorization.")
 
     Container(semantic_core_service, "Semantic Core & DSL Management Service", "Python/FastAPI", "Manages SBVR rules, DSL definitions, and semantic consistency.")
     Container(knowledge_graph_service, "Knowledge Graph Service", "Python/FastAPI", "Manages the Neo4j Knowledge Graph, providing semantic context.")

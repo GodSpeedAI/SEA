@@ -63,8 +63,8 @@ Ensure you have the following installed:
 | Tool | Version | Purpose |
 |------|---------|---------|
 | **Docker & Docker Compose** | Latest | Containerized deployment |
-| **Python** | 3.11+ | Backend services (Semantic Core, Knowledge Graph, ADG) |
-| **Java** | 17+ | API Gateway |
+| **Python** | 3.11+ | Backend services (Semantic Core, Knowledge Graph, ADG, Domain Services) |
+| **Kong Gateway** | 3.x+ | Edge routing, auth, and traffic policies |
 | **Node.js & npm** | 20+ | Web Application and CADSL Runtime |
 | **Neo4j** | 5+ | Knowledge Graph database |
 | **PostgreSQL** | 15+ | Operational data storage |
@@ -109,9 +109,16 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 
-# Set up Java API Gateway
-cd ../api-gateway
-./mvnw spring-boot:run
+# Start Kong Gateway (locally via Docker)
+# (Adjust the mounted kong.yml path to match your declarative configuration)
+docker run \
+  --rm -d \
+  --name kong-gateway \
+  -e "KONG_DATABASE=off" \
+  -e "KONG_DECLARATIVE_CONFIG=/kong/kong.yml" \
+  -v $(pwd)/infrastructure/kong/kong.yml:/kong/kong.yml \
+  -p 8000:8000 -p 8443:8443 -p 8001:8001 \
+  kong:3
 
 # Set up Web Application
 cd ../web-app
@@ -423,7 +430,7 @@ documentation:
 
 ### Key Components
 
-- **API Gateway** (Spring Cloud Gateway) - Routes requests and handles auth
+- **Kong Gateway** (OSS/Enterprise) - Routes requests, applies auth & traffic policies
 - **Semantic Core Service** (Python/FastAPI) - Manages DSL and SBVR rules
 - **Knowledge Graph Service** (Python/Neo4j) - Semantic network and inference
 - **Context Analyzer** (Python/FastAPI) - Processes context for recommendations
@@ -458,8 +465,7 @@ pre-commit install
 docker-compose -f docker-compose.dev.yml up -d
 
 # 4. Run tests
-pytest                           # Python services
-mvn test                         # Java services
+pytest                           # Python services (including domain services)
 npm test                         # Node.js services
 
 # 5. Start coding!
@@ -486,7 +492,7 @@ sea-5.0/
 │   ├── documentation-orchestrator/  # ADG coordinator
 │   └── project-context-analyzer/    # Project analysis
 ├── web-app/                     # React frontend
-├── api-gateway/                 # Spring Cloud Gateway
+├── infrastructure/kong/         # Declarative Kong gateway configuration
 └── tests/                       # Integration & E2E tests
 ```
 
@@ -524,7 +530,6 @@ See [TDD Implementation Plan](docs/08-implementation-plans/tdd-implementation-pl
 ### Code Style
 
 - **Python**: Black formatter, isort, flake8, mypy
-- **Java**: Google Java Style Guide
 - **JavaScript/TypeScript**: Prettier, ESLint
 - **Markdown**: markdownlint
 
@@ -726,7 +731,7 @@ http://mozilla.org/MPL/2.0/.
 
 - **FINOS CALM** - Apache 2.0
 - **Neo4j Community Edition** - GPLv3
-- **Spring Framework** - Apache 2.0
+- **Kong Gateway** - Apache 2.0
 - **React** - MIT
 
 See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for the complete list and any compatibility notes.

@@ -53,8 +53,8 @@ This section provides a minimal guide to get started with the SEA 5.0 framework.
 Ensure you have the following installed:
 
 *   **Docker & Docker Compose**: For containerized deployment of microservices.
-*   **Python 3.9+**: For Semantic Core, Knowledge Graph, Context Analyzer, Artifact Engine, AI Agent Config, User Feedback, Documentation Orchestrator, and Project Context Analyzer services.
-*   **Java 17+**: For API Gateway (Spring Cloud Gateway).
+*   **Python 3.11+**: For Semantic Core, Knowledge Graph, Context Analyzer, Artifact Engine, AI Agent Config, User Feedback, Documentation Orchestrator, Domain Services, and Project Context Analyzer services.
+*   **Kong Gateway 3.x+**: For edge routing, authentication, and traffic management.
 *   **Node.js 18+ & npm/yarn**: For Web Application (React/Next.js) and CADSL Runtime & Renderer.
 *   **Neo4j (Community Edition)**: For the Knowledge Graph database.
 *   **PostgreSQL 14+**: For Semantic Core and other relational data storage.
@@ -127,7 +127,7 @@ We welcome contributions to the Sentient Enterprise Architecture project! Please
 
 1.  **Fork the repository** and clone your fork.
 2.  **Install pre-commit hooks**: `pre-commit install`
-3.  **IDE Setup**: We recommend VS Code with extensions for Python (Pylance), Java (Extension Pack for Java), JavaScript/TypeScript (ESLint, Prettier), PlantUML, and Mermaid.
+3.  **IDE Setup**: We recommend VS Code with extensions for Python (Pylance), JavaScript/TypeScript (ESLint, Prettier), PlantUML, and Mermaid.
 4.  **Database Migrations**: Use `alembic` for PostgreSQL and Neo4j migration tools for graph schema changes.
 
 ### 🏗️ Architecture Overview
@@ -152,7 +152,7 @@ Refer to the [SDS.md](docs/sds.md) and [unified-synthesis-v5.md](docs/unified-sy
 
 ### 🧪 Testing
 
-*   **Unit Tests**: Run `pytest` in Python services, `jest` in Node.js services, `mvn test` in Java services.
+*   **Unit Tests**: Run `pytest` in Python services and `jest` in Node.js services.
 *   **Integration Tests**: Use `docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit`.
 *   **End-to-End Tests**: `playwright test` for UI automation.
 *   **Code Coverage**: Aim for >80% code coverage. Reports are generated in the `coverage/` directory.

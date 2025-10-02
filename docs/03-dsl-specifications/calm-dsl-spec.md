@@ -123,7 +123,7 @@ The CALM-based DSL document (e.g., `my-system.arch.json` or `my-system.arch.yaml
 
 CALM emphasizes **extensibility** through `metadata` and `controls`. These allow organizations to embed their specific governance, compliance, and operational requirements directly into the architectural model.
 
-*   **Metadata:** Arbitrary key-value pairs that can be attached to any node or relationship. This is critical for tagging sensitive data classes (`dataClassification: PII`), assigning ownership (`owner: TeamX`), or indicating technology choices (`technologyStack: [Spring Boot, Kafka]`).
+*   **Metadata:** Arbitrary key-value pairs that can be attached to any node or relationship. This is critical for tagging sensitive data classes (`dataClassification: PII`), assigning ownership (`owner: TeamX`), or indicating technology choices (`technologyStack: [FastAPI, Kafka]`).
 *   **Controls:** Formal statements of security or policy requirements. These can be tied to nodes or relationships and are used by the CALM CLI for automated validation. For example, a control could require all network connections to use TLS, and the `calm validate` command would flag any non-compliant relationships.
 
 ## **3. Integration with SEA Framework**

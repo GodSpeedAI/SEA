@@ -12,7 +12,7 @@ Container(artifact_engine, "Artifact Engine", "Python, Flask", "Generates and re
 }
 
 Container(knowledge_graph_service, "Knowledge Graph Service", "Neo4j", "Provides semantic context.")
-Container(domain_services, "Domain Services", "Spring Boot", "Provides operational context.")
+Container(domain_services, "Domain Services", "Python/FastAPI", "Provides operational context.")
 
 Rel(context_analyzer, domain_services, "Queries for operational data")
 Rel(context_analyzer, knowledge_graph_service, "Queries for semantic context")

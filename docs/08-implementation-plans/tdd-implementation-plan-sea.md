@@ -78,15 +78,15 @@ Each service within the SEA 4.0 will have a dedicated testing strategy, encompas
 
 - **Unit Testing Frameworks**: 
     - Python: `pytest`
-    - Java: `JUnit`, `Mockito`
     - Node.js: `Jest`, `React Testing Library`
+    - Gateway Declarative Config: `deck diff` validation and custom regression scripts
 - **Integration Testing**: 
     - Docker Compose for spinning up dependent services (databases, message brokers).
     - Contract testing (e.g., Pact) for inter-service API interactions.
 - **End-to-End Testing**: 
     - UI Automation: `Playwright` or `Cypress` for testing the Web Application and CADSL Renderer.
     - API Testing: `Postman` or `curl` scripts integrated into CI/CD.
-- **Code Coverage**: `Coverage.py` (Python), `JaCoCo` (Java), `Istanbul` (Node.js) to ensure adequate test coverage (target > 80%).
+- **Code Coverage**: `coverage.py` (Python) and `Istanbul/nyc` (Node.js) to ensure adequate test coverage (target > 80%).
 - **CI/CD Integration**: All tests will be integrated into the CI/CD pipeline (e.g., GitLab CI, GitHub Actions) to run automatically on every code commit. Failing tests will block merges to main branches.
 
 ## 5. Definition of Done (DoD) for TDD
