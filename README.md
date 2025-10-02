@@ -717,6 +717,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### License
 
+SEA is dual-licensed:
+- Open Source: MPL 2.0 (see LICENSE)
+- Commercial License: for proprietary or enterprise use (see LICENSE-COMMERCIAL, contact sprime01@gmail.com)
+
 This project is licensed under the **Mozilla Public License 2.0 (MPL 2.0)** — see the [LICENSE](LICENSE) file for full terms.
 
 ```

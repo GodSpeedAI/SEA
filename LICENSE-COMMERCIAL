@@ -1,0 +1,65 @@
+SEA Commercial License Agreement
+Version 1.0 — September 2025
+
+This Commercial License Agreement (“Agreement”) is between GodSpeed AI (“Licensor”)
+and the customer (“Licensee”).
+
+1. Grant of License
+Licensor grants Licensee a non-exclusive, non-transferable license to install, use, and operate the
+SEA Software (“Software”) for Licensee’s internal business purposes, subject to the terms of this Agreement.
+
+2. Scope of Use
+
+- Licensee may deploy the Software in production environments up to the limits defined in the chosen subscription tier.
+- Licensee may not sublicense, resell, distribute, or make the Software available as a hosted service
+  to third parties without Licensor’s written consent.
+- Any use outside the subscription tier requires an upgrade.
+
+3. Fees
+
+- Licensee shall pay the fees as set forth in the applicable order form or invoice.
+- Fees are non-refundable. Non-payment may result in suspension or termination of the license.
+
+4. Intellectual Property
+
+- The Software is licensed, not sold.
+- All rights, title, and interest in and to the Software remain with Licensor.
+- Licensee may not modify, reverse engineer, or create derivative works except as expressly permitted.
+
+5. Support and Updates
+
+- Licensor will provide support and updates in accordance with the support plan purchased by Licensee.
+- Licensor is not obligated to provide support beyond what is explicitly purchased.
+
+6. Term and Termination
+
+- This Agreement remains effective until terminated.
+- Either party may terminate for material breach not cured within thirty (30) days of notice.
+- Upon termination, Licensee must cease use of the Software and destroy all copies.
+
+7. Warranty Disclaimer
+Except as expressly provided in a paid support agreement, the Software is provided “AS IS.” Licensor disclaims
+all other warranties, including implied warranties of merchantability, fitness for a particular purpose,
+and non-infringement.
+
+8. Limitation of Liability
+Licensor’s total liability under this Agreement is limited to the fees paid by Licensee in the twelve (12)
+months preceding the claim. Licensor shall not be liable for indirect, incidental, or consequential damages.
+
+9. Governing Law
+This Agreement is governed by the laws of [Your Jurisdiction], excluding its conflict-of-law principles.
+
+10. Entire Agreement
+This Agreement constitutes the entire agreement between Licensor and Licensee with respect to the Software.
+
+---
+
+Dual License Notice
+-------------------
+
+The SEA Software is dual-licensed:
+
+- Open Source: Mozilla Public License 2.0 (see LICENSE)
+- Commercial License: This Agreement
+
+Licensees may choose which license to operate under. For commercial use, contact <sprime01@gmail.com>.
